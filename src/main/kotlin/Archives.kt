@@ -1,5 +1,5 @@
 class Archives : Menu() {
-    private val archivesList: MutableList<Archive> = ArrayList()
+    private val archivesList: MutableList<Archive> = mutableListOf()
     override val menu: List<String> = listOf("Создать архив", "Выбрать архив", "Выход")
 
     fun windowArchives() {
@@ -11,7 +11,7 @@ class Archives : Menu() {
         while (true) {
             println("Введите имя архива")
             val nameArchive = name()
-            if (nameArchive.isNotEmpty()) {
+            if (nameArchive.isNotBlank()) {
                 val archive = Archive(nameArchive)
                 archivesList.add(archive)
                 break

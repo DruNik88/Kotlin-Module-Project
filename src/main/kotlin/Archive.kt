@@ -1,5 +1,5 @@
 class Archive(val nameArchive: String) : Menu() {
-    private var archive: MutableMap<String, Any> = mutableMapOf()
+    private var archive: MutableMap<String, String> = mutableMapOf()
     override val menu: List<String> = listOf("Создать заметку", "Выбрать заметку", "Выход")
 
     fun windowArchive() {
@@ -13,7 +13,7 @@ class Archive(val nameArchive: String) : Menu() {
             val nameNode = input.nextLine()
             println("Введите текст заметки")
             val textNode = input.nextLine()
-            if (nameNode.isNotEmpty() && textNode.isNotEmpty()) {
+            if (nameNode.isNotBlank() && textNode.isNotBlank()) {
                 archive[nameNode] = textNode
                 break
             } else {
